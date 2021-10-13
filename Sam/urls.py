@@ -60,7 +60,12 @@ urlpatterns = [
     url(r'^goasset$', views.goasset, name='goasset'),
     url(r'^assetcreate$', views.assetcreate, name='assetcreate'),
 
-
+    url(r'^goliability$', views.goliability, name='goliability'),
+    url(r'^liabilitycreate$', views.liabilitycreate, name='liabilitycreate'),
+    url(r'^goincome$', views.goincome, name='goincome'),
+    url(r'^incomecreate$', views.incomecreate, name='incomecreate'),
+    url(r'^goexpences$', views.goexpences, name='goexpences'),
+    url(r'^expencescreate$', views.expencescreate, name='expencescreate'),
 
 ]
 if settings.DEBUG:
