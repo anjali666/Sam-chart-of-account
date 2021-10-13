@@ -1,0 +1,52 @@
+version: '3.4'
+services:
+  db-sam-chart:
+    image: mysql
+    container_name: "db-sam-chart"
+    command: --default-authentication-plugin=mysql_native_password
+    # restart: "no"
+    environment:
+      MYSQL_DATABASE: 'samdb'
+      # MYSQL_USER: 'root'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    # networks:
+    #   - net
+
+  adminer:
+    image: adminer
+    container_name: "adminer"
+    # restart: "no"
+    ports:
+      - 8080:8080
+    # networks:
+    #   - net
+
+  sam-chart-app:
+    # restart: "no"
+    container_name: "sam-chart-app"
+    env_file: .env
+    build: 
+      context: ./
+      dockerfile: Dockerfile.mysql
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    # networks:
+    #   - net
+    depends_on:
+      - db-sam-chart
+    links:
+      - db-sam-chart
+    volumes:
+      - ./djangoSamSoft:/app/djangoSamSoft:rw
+      - ./Sam:/app/Sam:rw
+      
+# networks:
+#   net:
+#     external: 
+#       name: platform_net
+  
+ 
