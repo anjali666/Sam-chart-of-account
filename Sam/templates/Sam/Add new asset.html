@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+    <title>Title</title>
+<style>
+    .a{
+        font-family: "Poppins", sans-serif;
+    }
+</style>
+<script type="text/javascript">
+   function goasset()
+   {
+       goasset=document.querySelector("#selectcolor")
+       ans=goasset.options[goasset.selectedIndex].value;
+       document.querySelector("#colorDisplay").textContent=ans;
+   }
+</script>
+</head>
+<body>
+<div style="background-color: lightgray">
+
+        <div class="page-content">
+					<!--breadcrumb-->
+					<div class="card radius-15">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <center><h2 style="text-align: center">Add New Asset</h2></center>
+                            </div>
+                            <hr/>
+                        </div>
+                    </div>
+					<!--end breadcrumb-->
+                    <div class="container"></div>
+                    <form action="assetcreate" method="post"  class="needs-validation" novalidate>
+                                {% csrf_token %}
+                                <br>
+                        <div class="card radius-15" style="background-color: grey;">
+						<div class="card-body">
+                            <br>
+
+
+
+                            <div class="row">
+                                <label for="validationCustom02">Select Parent</label>
+                                <input type="text" class="form-control" id="validationCustom02" name="asset_parent" required style="background-color: lightgray;color: black;">
+                                <!-- <select>
+                                 
+                                    <option disabled="true" selected>Parent Asset </option>
+                                   {%for results in Asset%}
+                                   <option>{{results.asset_parent}}</option>
+                                   {%endfor%}
+                                </select> -->
+                            </div><br>
+                            <div class="row">
+                                <label for="validationCustom02">Child</label>
+                                <input type="text" class="form-control" id="validationCustom02" name="asset_child" required style="background-color: lightgray;color: black;">
+                                <select id="selectcolor">
+                                 
+                                    <option disabled="true" selected>Child Asset </option>
+                                   {%for results in Asset%}
+                                   <option>{{results.asset_child}}</option>
+                                   {%endfor%}
+                                </select>
+                            </div><br>
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+                        </div>
+
+
+
+								&nbsp;
+
+
+
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-row">
+                                    <button class="btn btn-primary" type="submit" value="/click" onclick="goasset()"width: 100%;background-color: darkgrey">Submit form</button>
+                                <b id="colorDisplay"></b>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+        </div>
+
+</div>
+
+
+
+</body>
+</html>
