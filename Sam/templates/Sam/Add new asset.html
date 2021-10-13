@@ -11,14 +11,6 @@
         font-family: "Poppins", sans-serif;
     }
 </style>
-<script type="text/javascript">
-   function goasset()
-   {
-       goasset=document.querySelector("#selectcolor")
-       ans=goasset.options[goasset.selectedIndex].value;
-       document.querySelector("#colorDisplay").textContent=ans;
-   }
-</script>
 </head>
 <body>
 <div style="background-color: lightgray">
@@ -44,29 +36,27 @@
 
 
 
+                          
                             <div class="row">
                                 <label for="validationCustom02">Select Parent</label>
                                 <input type="text" class="form-control" id="validationCustom02" name="asset_parent" required style="background-color: lightgray;color: black;">
-                                <!-- <select>
-                                 
-                                    <option disabled="true" selected>Parent Asset </option>
-                                   {%for results in Asset%}
-                                   <option>{{results.asset_parent}}</option>
-                                   {%endfor%}
-                                </select> -->
+
                             </div><br>
                             <div class="row">
-                                <label for="validationCustom02">Child</label>
+                                <label for="validationCustom02">Select asset_child</label>
                                 <input type="text" class="form-control" id="validationCustom02" name="asset_child" required style="background-color: lightgray;color: black;">
-                                <select id="selectcolor">
-                                 
-                                    <option disabled="true" selected>Child Asset </option>
-                                   {%for results in Asset%}
-                                   <option>{{results.asset_child}}</option>
-                                   {%endfor%}
-                                </select>
-                            </div><br>
 
+                            </div><br>
+                            <div class="row">
+                                <label for="validationCustom02">Select new_child</label>
+                                <input type="text" class="form-control" id="validationCustom02" name="new_child" required style="background-color: lightgray;color: black;">
+
+                            </div><br>
+                            <div class="row">
+                                <label for="validationCustom02">Select child</label>
+                                <input type="text" class="form-control" id="validationCustom02" name="child" required style="background-color: lightgray;color: black;">
+
+                            </div><br>
 
 
 
@@ -87,8 +77,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-row">
-                                    <button class="btn btn-primary" type="submit" value="/click" onclick="goasset()"width: 100%;background-color: darkgrey">Submit form</button>
-                                <b id="colorDisplay"></b>
+                                    <button class="btn btn-primary" type="submit" style="width: 100%;background-color: darkgrey">Submit form</button>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +86,6 @@
         </div>
 
 </div>
-
 
 
 </body>

@@ -1,199 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-ul, #myUL {
-  list-style-type: none;
-}
-
-#myUL {
-  margin: 0;
-  padding: 0;
-}
-
-.caret {
-  cursor: pointer;
-  -webkit-user-select: none; /* Safari 3.1+ */
-  -moz-user-select: none; /* Firefox 2+ */
-  -ms-user-select: none; /* IE 10+ */
-  user-select: none;
-}
-
-.caret::before {
-  content: "\25B6";
-  color: black;
-  display: inline-block;
-  margin-right: 6px;
-}
-
-.caret-down::before {
-  -ms-transform: rotate(90deg); /* IE 9 */
-  -webkit-transform: rotate(90deg); /* Safari */'
-  transform: rotate(90deg);
-}
-
-.nested {
-  display: none;
-}
-
-.active {
-  display: block;
-}
-</style>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<h2 STYLE="text-align: center">CHART OF ACCOUNTS</h2>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+ 
+  <button class="submit" type="button"> <a  href="Add new asset.html">Add new ledger</a>
+  
+  </button>
+  
+</nav>
+<br>
 
+<table style="width:100%">
+    <tr>
+        <th>code</th>
+        <th>ledger</th>
+        <th>Actions</th>
+    </tr>
+    <tr>
+        <td>
+            <ol>
+                <li>
+    {% for results in Asset %}
+        {{results.asset_parent}}
+  
+</li>
 
-<ul id="myUL">
-  <li><span class="caret">Assets</span> &nbsp;&nbsp;&nbsp;&nbsp;<a href="goasset"><button>Add new Asset</button></a>
-    <ul class="nested">
-        <li><span class="caret">Convertibility</span>
-            <ul class="nested">
-                <li>Current Assets</li>
-                <li>Fixed Assets</li>
-            </ul>
-        </li>
-        <li><span class="caret">Physical Existense</span>
-            <ul class="nested">
-              <li>Tangible Assets</li>
-              <li>Intangible Assets</li>
-            </ul>
-        </li>
-        <li><span class="caret">Usage</span>
-            <ul class="nested">
-              <li>Operating Assets</li>
-              <li>Non-Operating Assets</li>
-            </ul>
-        </li>
+    </td>
+    <td><li>{% for results in Asset %}
+        {{results.asset_child}}
+    {% endfor %} 
+   </li>  </td>
+    <td><li>{% for results in Asset %}
+        {{results.new_child}}
+    {% endfor %} 
+    {% endfor %}</li> </td>
+    </tr>
+    </table>
+</ol>
 
-    </ul>
-  </li><br>
-
-  <li><span class="caret">Liabilities</span> &nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><button>Add new liabilities</button></a>
-    <ul class="nested">
-        <li><span class="caret">Accounts Payable</span>
-            <ul class="nested">
-                <li>child 1</li>
-                <li>child 2</li>
-            </ul>
-        </li>
-        <li><span class="caret">Income taxes payable</span>
-            <ul class="nested">
-                <li>child 1</li>
-                <li>child 2</li>
-            </ul>
-        </li>
-        <li><span class="caret">Interest payable</span>
-            <ul class="nested">
-                <li>child 1</li>
-                <li>child 2</li>
-            </ul>
-        </li>
-        <li><span class="caret">Accurated expences</span>
-            <ul class="nested">
-                <li>child 1</li>
-                <li>child 2</li>
-            </ul>
-        </li>
-        <li><span class="caret">Unearned revenue</span>
-            <ul class="nested">
-                <li>child 1</li>
-                <li>child 2</li>
-            </ul>
-        </li>
-        <li><span class="caret">Mortgage payable</span>
-            <ul class="nested">
-                <li>child 1</li>
-                <li>child 2</li>
-            </ul>
-        </li>
-
-    </ul>
-  </li><br>
-
-  <li><span class="caret">Income</span> &nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><button>Add new Income</button></a>
-    <ul class="nested">
-        <li><span class="caret">Sales</span>
-            <ul class="nested">
-                <li>Child 1</li>
-                <li>child 2</li>
-            </ul>
-        </li>
-        <li><span class="caret">Operating Income</span>
-            <ul class="nested">
-                <li>Child 1</li>
-                <li>child 2</li>
-            </ul>
-        </li>
-        <li><span class="caret">Other Income</span>
-            <ul class="nested">
-                <li>Child 1</li>
-                <li>child 2</li>
-            </ul>
-        </li>
-        <li><span class="caret">Exeptional Income</span>
-            <ul class="nested">
-                <li>Child 1</li>
-                <li>child 2</li>
-            </ul>
-        </li>
-
-
-    </ul>
-  </li><br>
-
-  <li><span class="caret">Expenses</span> &nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><button>Add new Expense</button></a>
-    <ul class="nested">
-        <li><span class="caret">Cost of Goods Sold</span>
-            <ul class="nested">
-                <li>Child 1</li>
-                <li>child 2</li>
-            </ul>
-        </li>
-        <li><span class="caret">Operating Expenses</span>
-            <ul class="nested">
-                <li>Child 1</li>
-                <li>child 2</li>
-            </ul>
-        </li>
-        <li><span class="caret">Financial Expences</span>
-            <ul class="nested">
-                <li>Child 1</li>
-                <li>child 2</li>
-            </ul>
-        </li>
-        <li><span class="caret">Extraordinary Expences</span>
-            <ul class="nested">
-                <li>Child 1</li>
-                <li>child 2</li>
-            </ul>
-        </li>
-        <li><span class="caret">Non-Operating Expenses</span>
-            <ul class="nested">
-                <li>Child 1</li>
-                <li>child 2</li>
-            </ul>
-        </li>
-
-
-    </ul>
-  </li><br>
-</ul>
-
-<script>
-var toggler = document.getElementsByClassName("caret");
-var i;
-
-for (i = 0; i < toggler.length; i++) {
-  toggler[i].addEventListener("click", function() {
-    this.parentElement.querySelector(".nested").classList.toggle("active");
-    this.classList.toggle("caret-down");
-  });
-}
-</script>
 
 </body>
 </html>

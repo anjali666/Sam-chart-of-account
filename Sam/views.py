@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from Sam.models import Customer, Supplier, Group, Ledger, Item, Job, Asset
+from Sam.models import Customer, Supplier, Group, Ledger, Item, Job, Asset,Category,SubCategory,ChildCategory
 from .forms import ItemForm, JobForm
+from rest_framework import viewsets
+from .serializers import CategorySerializer,SubCategorySerializer
 
 
 def go(request):
@@ -236,17 +238,50 @@ def goemp(request):
     return render(request,'Sam/employee.html')
 def goaccount(request):
     results=Asset.objects.all()
+   
     return render(request,'Sam/chart of account.html',{"Asset":results})
-
 def goasset(request):
-
     results=Asset.objects.all()
-    return render(request,'Sam/Add new asset.html',{"Asset":results})
-
+    
+    return render(request,'Sam/chart of account.html',{Asset:results})
+   
+def addnewasset(request):
+    results=Asset.objects.all()
+    return render(request,'Sam/Add new asset.html',{Asset:results})
 def assetcreate(request):
-    ast2 = Asset(asset_parent=request.POST['asset_parent'],asset_child=request.POST['asset_child'],)
+    ast2 = Asset(asset_parent=request.POST['asset_parent'],asset_child=request.POST['asset_child'],new_child=request.POST['new_child'],child=request.POST['child'])
     ast2.save()
     return redirect( '/')
+class Category():
+  
+    serializer_class = CategorySerializer
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_authenticated:
+            if user is not None:
+                if user.is_active and user.is_superuser:
+                    return Category.objects.all()
+               
+
+class SubCategory():
+    
+  def get_queryset(self):
+    id_child = self.request.query_params.get('id_child')
+    queryset = super().get_queryset()
+    if id_child:
+        queryset = queryset.filter(id_parent=id_child)
+    return queryset
+class ChildCategory():
+    
+  def get_queryset(self):
+    id_child = self.request.query_params.get('id_child')
+    queryset = super().get_queryset()
+    if id_child:
+        queryset = queryset.filter(id_child=id_child)
+    return queryset
+               
+
+    serializer_class = SubCategorySerializer
 
 
 

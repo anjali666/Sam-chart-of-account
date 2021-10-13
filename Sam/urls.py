@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import viewsets
 
 from . import views
 from django.conf import settings
@@ -57,9 +58,11 @@ urlpatterns = [
 
     url(r'^goemp$', views.goemp, name='goemp'),
     url(r'^goaccount$', views.goaccount, name='goaccount'),
-    url(r'^goasset$', views.goasset, name='goasset'),
+    url(r'^goasset$', views.goledger, name='goasset'),
     url(r'^assetcreate$', views.assetcreate, name='assetcreate'),
-
+    url('Add new asset', views.addnewasset, name='addnewasset'),
+    url('category',views.Category,name='category'),
+    url('subcategory',views.SubCategory,name='subcategory'),
 
 
 ]
