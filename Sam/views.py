@@ -244,20 +244,20 @@ def assetcreate(request):
     ast2.save()
     return redirect( '/')
 
-def goliability(reruest):
-    return render(reruest,'Sam/Add new liability.html')
+def goliability(request):
+    return render(request,'Sam/Add new liability.html')
 def liabilitycreate(request):
     lbt2 = Liabilities(liability_parent=request.POST['liability_parent'],liability_child=request.POST['liability_child'],)
     lbt2.save()
     return redirect( '/')
-def goincome(reruest):
-    return render(reruest,'Sam/Add new income.html')
+def goincome(request):
+    return render(request,'Sam/Add new income.html')
 def incomecreate(request):
     inm2 = Income(income_parent=request.POST['income_parent'],income_child=request.POST['income_child'],)
     inm2.save()
     return redirect( '/')
-def goexpences(reruest):
-    return render(reruest,'Sam/Add new expences.html')
+def goexpences(request):
+    return render(request,'Sam/Add new expences.html')
 def expencescreate(request):
     exp2 = Expences(expenses_parent=request.POST['expenses_parent'],expenses_child=request.POST['expenses_child'],)
     exp2.save()
