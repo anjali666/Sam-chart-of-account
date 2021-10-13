@@ -144,17 +144,17 @@ class Ledger(models.Model):
 
 
 class Asset(models.Model):
-    asset_child  =   models.TextField(max_length=100)
-    asset_parent =   models.ForeignKey(
+    name  =   models.TextField(max_length=250, null=True)
+    parent =   models.ForeignKey(
         'self',
         on_delete=models.CASCADE,
         related_name='children',
         null=True,
         blank=True)
     def _str_(self):
-      return self.asset_child
+      return self.name
     class Meta:
-        ordering =('asset_child',)
+        ordering =('id',)
         verbose_name_plural='Assets'
 
 

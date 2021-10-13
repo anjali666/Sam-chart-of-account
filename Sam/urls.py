@@ -60,7 +60,7 @@ urlpatterns = [
     url(r'^goaccount$', views.goaccount, name='goaccount'),
     url(r'^goasset$', views.goledger, name='goasset'),
     url(r'^assetcreate$', views.assetcreate, name='assetcreate'),
-    url('Add new asset', views.addnewasset, name='addnewasset'),
+    url('asset/add', views.addnewasset, name='addnewasset'),
     url('category',views.Category,name='category'),
     url('subcategory',views.SubCategory,name='subcategory'),
 

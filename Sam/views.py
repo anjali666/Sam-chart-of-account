@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.core import serializers
+from django.http import JsonResponse
 from Sam.models import Customer, Supplier, Group, Ledger, Item, Job, Asset,Category,SubCategory,ChildCategory
 from .forms import ItemForm, JobForm
 from rest_framework import viewsets
@@ -237,21 +239,42 @@ def deleteledger(request, id):
 def goemp(request):
     return render(request,'Sam/employee.html')
 def goaccount(request):
-    results=Asset.objects.all()
-   
-    return render(request,'Sam/chart of account.html',{"Asset":results})
+    results = Asset.objects.filter(parent_id__isnull=True)
+    
+    return render(request,'Sam/chart_of_account.html',{"Asset":results})
+
 def goasset(request):
     results=Asset.objects.all()
     
-    return render(request,'Sam/chart of account.html',{Asset:results})
+    return render(request,'Sam/chart_of_account.html',{Asset:results})
+
+def find_child_assets(request):
+    if request.is_ajax and request.method == "GET":
+
+        parent_id = request.GET.get("parent_id", None)
+        assets = Asset.objects.filter(parent_id=parent_id)
+    
+        children = serializers.serialize('json', [assets])
+        return JsonResponse({"children": children}, status=200)
+
+    return JsonResponse({}, status = 400)
    
 def addnewasset(request):
-    results=Asset.objects.all()
-    return render(request,'Sam/Add new asset.html',{Asset:results})
+    if request.method == "POST":
+        parent_id = request.POST.get('parent_id', None)
+
+        ast2 = Asset(parent_id=parent_id, name=request.POST['name'])
+        ast2.save()
+        return redirect( '/')
+    
+    results = Asset.objects.all()
+    return render(request,'Sam/add_new_asset.html',{"Assets":results})
+    
 def assetcreate(request):
     ast2 = Asset(asset_parent=request.POST['asset_parent'],asset_child=request.POST['asset_child'],new_child=request.POST['new_child'],child=request.POST['child'])
     ast2.save()
     return redirect( '/')
+
 class Category():
   
     serializer_class = CategorySerializer

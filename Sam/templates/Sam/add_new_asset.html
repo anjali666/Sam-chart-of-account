@@ -27,7 +27,7 @@
                     </div>
 					<!--end breadcrumb-->
                     <div class="container"></div>
-                    <form action="assetcreate" method="post"  class="needs-validation" novalidate>
+                    <form action="asset/add" method="post"  class="needs-validation" novalidate>
                                 {% csrf_token %}
                                 <br>
                         <div class="card radius-15" style="background-color: grey;">
@@ -39,15 +39,21 @@
                           
                             <div class="row">
                                 <label for="validationCustom02">Select Parent</label>
-                                <input type="text" class="form-control" id="validationCustom02" name="asset_parent" required style="background-color: lightgray;color: black;">
+                                <select name="parent_id" id="parent">
+                                    <option value="">Please select</option>
+                                    {% for asset in Assets %}
+                                    <option value="{{asset.id}}">{{asset.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <!-- <input type="text" class="form-control" id="validationCustom02" name="asset_parent" required style="background-color: lightgray;color: black;"> -->
 
                             </div><br>
                             <div class="row">
-                                <label for="validationCustom02">Select asset_child</label>
-                                <input type="text" class="form-control" id="validationCustom02" name="asset_child" required style="background-color: lightgray;color: black;">
+                                <label for="validationCustom02">Asset Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required style="background-color: lightgray;color: black;">
 
                             </div><br>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <label for="validationCustom02">Select new_child</label>
                                 <input type="text" class="form-control" id="validationCustom02" name="new_child" required style="background-color: lightgray;color: black;">
 
@@ -56,7 +62,7 @@
                                 <label for="validationCustom02">Select child</label>
                                 <input type="text" class="form-control" id="validationCustom02" name="child" required style="background-color: lightgray;color: black;">
 
-                            </div><br>
+                            </div><br> -->
 
 
 

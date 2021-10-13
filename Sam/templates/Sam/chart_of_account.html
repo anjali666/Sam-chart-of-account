@@ -13,7 +13,7 @@
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
  
-  <button class="submit" type="button"> <a  href="Add new asset.html">Add new ledger</a>
+  <button class="submit" type="button"> <a  href="asset/add">Add new ledger</a>
   
   </button>
   
@@ -26,28 +26,17 @@
         <th>ledger</th>
         <th>Actions</th>
     </tr>
-    <tr>
-        <td>
-            <ol>
-                <li>
     {% for results in Asset %}
-        {{results.asset_parent}}
-  
-</li>
-
-    </td>
-    <td><li>{% for results in Asset %}
-        {{results.asset_child}}
-    {% endfor %} 
-   </li>  </td>
-    <td><li>{% for results in Asset %}
-        {{results.new_child}}
-    {% endfor %} 
-    {% endfor %}</li> </td>
+    <tr>
+        <td>{{results.id}}</td>
+        <td>{{results.name}}</td>
+        <td>{{results.id}}</td>
     </tr>
+    {% endfor %} 
     </table>
 </ol>
 
 
 </body>
+
 </html>
