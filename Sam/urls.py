@@ -57,7 +57,7 @@ urlpatterns = [
 
     url(r'^goemp$', views.goemp, name='goemp'),
     url(r'^goaccount$', views.goaccount, name='goaccount'),
-    url(r'^goasset$', views.goledger, name='goasset'),
+    url(r'^goasset$', views.goasset, name='goasset'),
     url(r'^assetcreate$', views.assetcreate, name='assetcreate'),
 
 
