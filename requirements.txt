@@ -12,3 +12,4 @@ whitenoise
 mysqlclient
 Pillow
 djangorestframework
+django-environ

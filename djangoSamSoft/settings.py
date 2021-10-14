@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import  os
+import environ
+
+env = environ.Env()
+# reading .env file
+environ.Env.read_env()
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-zi))1jgnm+@wzcu86tif2zgm73u%5w@5&2_bmo(n2g!p3kuko)'
+SECRET_KEY = env("SECRET_KEY", default='django-insecure-zi))1jgnm+@wzcu86tif2zgm73u%5w@5&2_bmo(n2g!p3kuko)')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Sam.apps.SamConfig',
 
-    
+
 ]
 
 MIDDLEWARE = [
@@ -82,12 +88,12 @@ WSGI_APPLICATION = 'djangoSamSoft.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'samdb',
-        'HOST': 'db-sam-chart',
-        'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': 'password',
+        'ENGINE': env("DATABASE_ENGINE", default='django.db.backends.mysql'),
+        'NAME': env("DATABASE_NAME", default='samdb'),
+        'HOST': env("DATABASE_HOST", default='localhost'),
+        'PORT': env("DATABASE_PORT", default=3306),
+        'USER': env("DATABASE_USER", default='root'),
+        'PASSWORD': env("DATABASE_PASSWORD", default=''),
     }
 }
 
