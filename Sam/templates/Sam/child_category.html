@@ -1,0 +1,14 @@
+
+{% for category in Categories %}
+    <tr>
+        <td>{{category.sl_no}}</td>
+        <td>{{category.name}}</td>
+        <td>
+        <a href="asset/edit/{{ category.id }}">Edit</a> |
+        <a href="asset/delete/{{ category.id }}">Delete</a>
+        </td>
+    </tr>
+    {% if category.children|length %}
+        {% include "child_category.html" with Categories=category.children %}
+    {% endif %}
+{% endfor %}

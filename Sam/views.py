@@ -238,14 +238,45 @@ def deleteledger(request, id):
 
 def goemp(request):
     return render(request,'Sam/employee.html')
+
+def find_child_category(categories, parent_id, parent_index):
+    children = []
+    index = 1;
+    for cat in categories:
+        if cat.parent_id == parent_id:
+            children.append({
+                "sl_no": parent_index + ' . ' + str(index),
+                "id": cat.id,
+                "name": cat.name,
+                "type": cat.type,
+                "status": cat.status,
+                "children": find_child_category(categories, cat.id, parent_index + ' . ' + str(index))
+            })
+            index += 1
+
+    return children
+
 def goaccount(request):
-    results = Asset.objects.filter(parent_id__isnull=True)
-    
-    return render(request,'Sam/chart_of_account.html',{"Asset":results})
+    results = Category.objects.all()
+    categories = []
+    index = 1;
+    for cat in results:
+        if not cat.parent_id:
+            categories.append({
+                "sl_no": index,
+                "id": cat.id,
+                "name": cat.name,
+                "type": cat.type,
+                "status": cat.status,
+                "children": find_child_category(results, cat.id, str(index))
+            })
+            index += 1;
+
+    return render(request,'Sam/chart_of_account.html', {"Categories": categories})
 
 def goasset(request):
     results=Asset.objects.all()
-    
+
     return render(request,'Sam/chart_of_account.html',{Asset:results})
 
 def find_child_assets(request):
@@ -253,12 +284,12 @@ def find_child_assets(request):
 
         parent_id = request.GET.get("parent_id", None)
         assets = Asset.objects.filter(parent_id=parent_id)
-    
+
         children = serializers.serialize('json', [assets])
         return JsonResponse({"children": children}, status=200)
 
     return JsonResponse({}, status = 400)
-   
+
 def addnewasset(request):
     if request.method == "POST":
         parent_id = request.POST.get('parent_id', None)
@@ -266,17 +297,18 @@ def addnewasset(request):
         ast2 = Asset(parent_id=parent_id, name=request.POST['name'])
         ast2.save()
         return redirect( '/')
-    
+
     results = Asset.objects.all()
     return render(request,'Sam/add_new_asset.html',{"Assets":results})
-    
+
 def assetcreate(request):
     ast2 = Asset(asset_parent=request.POST['asset_parent'],asset_child=request.POST['asset_child'],new_child=request.POST['new_child'],child=request.POST['child'])
     ast2.save()
     return redirect( '/')
 
-class Category():
-  
+
+class CategoryClass():
+
     serializer_class = CategorySerializer
     def get_queryset(self):
         user = self.request.user
@@ -284,10 +316,9 @@ class Category():
             if user is not None:
                 if user.is_active and user.is_superuser:
                     return Category.objects.all()
-               
 
 class SubCategory():
-    
+
   def get_queryset(self):
     id_child = self.request.query_params.get('id_child')
     queryset = super().get_queryset()
@@ -295,14 +326,14 @@ class SubCategory():
         queryset = queryset.filter(id_parent=id_child)
     return queryset
 class ChildCategory():
-    
+
   def get_queryset(self):
     id_child = self.request.query_params.get('id_child')
     queryset = super().get_queryset()
     if id_child:
         queryset = queryset.filter(id_child=id_child)
     return queryset
-               
+
 
     serializer_class = SubCategorySerializer
 

@@ -12,27 +12,34 @@
 <body>
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
- 
+
   <button class="submit" type="button"> <a  href="asset/add">Add new ledger</a>
-  
+
   </button>
-  
+
 </nav>
 <br>
 
 <table style="width:100%">
     <tr>
-        <th>code</th>
-        <th>ledger</th>
+        <th>Code</th>
+        <th>Ledger</th>
         <th>Actions</th>
     </tr>
-    {% for results in Asset %}
-    <tr>
-        <td>{{results.id}}</td>
-        <td>{{results.name}}</td>
-        <td>{{results.id}}</td>
-    </tr>
-    {% endfor %} 
+    {% for category in Categories %}
+      <tr>
+        <td>{{category.sl_no}}</td>
+        <td>{{category.name}}</td>
+        <td>
+          {% if category.type != 'static' %}
+          <a href="asset/edit/{{ category.id }}">Edit</a>
+          {% endif %}
+        </td>
+      </tr>
+      {% if category.children|length %}
+          {% include "Sam/child_category.html" with Categories=category.children %}
+      {% endif %}
+    {% endfor %}
     </table>
 </ol>
 
