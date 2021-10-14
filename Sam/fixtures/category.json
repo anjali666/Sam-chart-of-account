@@ -1,0 +1,38 @@
+[
+    {
+        "model": "Sam.Category",
+        "pk": 1,
+        "fields": {
+            "name": "Assets",
+            "type": "static",
+            "status": true
+        }
+    },
+    {
+      "model": "Sam.Category",
+      "pk": 2,
+        "fields": {
+            "name": "Liabilities",
+            "type": "static",
+            "status": true
+        }
+    },
+    {
+        "model": "Sam.Category",
+        "pk": 3,
+          "fields": {
+            "name": "Income",
+            "type": "static",
+            "status": true
+        }
+    },
+    {
+        "model": "Sam.Category",
+        "pk": 4,
+        "fields": {
+            "name": "Expenses",
+            "type": "static",
+            "status": true
+        }
+    }
+]

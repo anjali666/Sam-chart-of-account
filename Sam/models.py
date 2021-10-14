@@ -6,8 +6,13 @@ import os
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=254, unique=True)
-
-    
+    parent = models.ForeignKey(
+        'self',
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
+    type = models.CharField(max_length=15, default='dynamic')
     status = models.BooleanField(default=True)
 
     def __str__(self):
@@ -16,12 +21,12 @@ class Category(models.Model):
 
 class SubCategory(models.Model):
     name = models.CharField(max_length=254, unique=True)
-   
     price = models.IntegerField()
     status = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
+
 class ChildCategory(models.Model):
     name = models.CharField(max_length=254, unique=True)
     id_child = models.ForeignKey(SubCategory, on_delete=models.SET_NULL, null=True)
@@ -148,17 +153,16 @@ class Asset(models.Model):
     parent =   models.ForeignKey(
         'self',
         on_delete=models.CASCADE,
-        related_name='children',
         null=True,
         blank=True)
     def _str_(self):
       return self.name
     class Meta:
-        ordering =('id',)
+        ordering =('name',)
         verbose_name_plural='Assets'
 
 
-    
+
 class Liabilities(models.Model):
     liability_parent   =   models.TextField(max_length=100)
     liability_child    =   models.TextField(max_length=100)
@@ -173,4 +177,4 @@ class Expences(models.Model):
 
 
 
-    
+
