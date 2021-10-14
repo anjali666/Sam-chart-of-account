@@ -296,10 +296,32 @@ def addnewasset(request):
 
         Category(parent_id=parent_id, name=request.POST['name'], status=1, type='dynamic').save()
 
-        return redirect( '/')
+        return redirect( '/Sam/goaccount')
 
     results = Category.objects.all()
     return render(request,'Sam/add_new_asset.html',{"Assets":results})
+
+def edit_asset(request):
+    if request.method == "POST":
+        parent_id = request.POST.get('parent_id', None)
+
+        Category(parent_id=parent_id, name=request.POST['name'], status=1, type='dynamic').save()
+
+        return redirect( '/Sam/goaccount')
+
+    id = request.GET.get('id')
+
+    category = Category.objects.get(id)
+    results = Category.objects.all()
+    return render(request,'Sam/edit_asset.html', {"Assets": results, "Category": category})
+
+def delete_asset(request):
+    id = request.GET.get('id')
+
+    Category.objects.filter(parent_id=id).delete()
+    Category.objects.filter(id=id).delete()
+
+    return redirect( '/Sam/goaccount')
 
 def assetcreate(request):
     ast2 = Asset(asset_parent=request.POST['asset_parent'],asset_child=request.POST['asset_child'],new_child=request.POST['new_child'],child=request.POST['child'])

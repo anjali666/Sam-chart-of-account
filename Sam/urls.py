@@ -61,6 +61,8 @@ urlpatterns = [
     url(r'^goasset$', views.goledger, name='goasset'),
     url(r'^assetcreate$', views.assetcreate, name='assetcreate'),
     url('asset/add', views.addnewasset, name='addnewasset'),
+    url(r'^asset/edit/(?P<id>\d+)$', views.edit_asset, name='assetedit'),
+    url(r'^asset/delete/(?P<id>\d+)$', views.delete_asset, name='assetdelete'),
     url('category',views.Category,name='category'),
     url('subcategory',views.SubCategory,name='subcategory'),
 
