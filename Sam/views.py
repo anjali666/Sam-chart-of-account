@@ -301,23 +301,24 @@ def addnewasset(request):
     results = Category.objects.all()
     return render(request,'Sam/add_new_asset.html',{"Assets":results})
 
-def edit_asset(request):
+def edit_asset(request, id):
+    category = Category.objects.get(id=id)
+    if category.type == 'static':
+        return redirect( '/Sam/goaccount')
+
     if request.method == "POST":
         parent_id = request.POST.get('parent_id', None)
 
-        Category(parent_id=parent_id, name=request.POST['name'], status=1, type='dynamic').save()
+        category.name = request.POST['name']
+        category.parent_id = parent_id
+        category.save()
 
         return redirect( '/Sam/goaccount')
 
-    id = request.GET.get('id')
-
-    category = Category.objects.get(id)
     results = Category.objects.all()
     return render(request,'Sam/edit_asset.html', {"Assets": results, "Category": category})
 
-def delete_asset(request):
-    id = request.GET.get('id')
-
+def delete_asset(request, id):
     Category.objects.filter(parent_id=id).delete()
     Category.objects.filter(id=id).delete()
 
