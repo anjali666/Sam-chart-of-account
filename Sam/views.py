@@ -294,11 +294,11 @@ def addnewasset(request):
     if request.method == "POST":
         parent_id = request.POST.get('parent_id', None)
 
-        ast2 = Asset(parent_id=parent_id, name=request.POST['name'])
-        ast2.save()
+        Category(parent_id=parent_id, name=request.POST['name'], status=1, type='dynamic').save()
+
         return redirect( '/')
 
-    results = Asset.objects.all()
+    results = Category.objects.all()
     return render(request,'Sam/add_new_asset.html',{"Assets":results})
 
 def assetcreate(request):

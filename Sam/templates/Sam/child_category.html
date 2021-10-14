@@ -9,6 +9,6 @@
         </td>
     </tr>
     {% if category.children|length %}
-        {% include "child_category.html" with Categories=category.children %}
+        {% include "Sam/child_category.html" with Categories=category.children %}
     {% endif %}
 {% endfor %}
