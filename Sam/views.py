@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from Sam.models import Customer, CustomerInvoice, Expences, Income, Liabilities, Supplier, Group, Ledger, Item, Job, Asset, SupplierInvoice
+from Sam.models import Customer, CustomerInvoice, Expences, Income, ItemInvoice, Liabilities, Supplier, Group, Ledger, Item, Job, Asset, SupplierInvoice
 from .forms import ItemForm, JobForm
 
 
@@ -15,13 +15,19 @@ def cinvocreate(request):
 
 def supinvoice(request):
     return render(request,'Sam/supplier invoice.html')
+
 def sinvocreate(request):
     c = SupplierInvoice(supplier_id=request.POST['supplier_id'],supplier_name=request.POST['supplier_name'],report_date=request.POST['report_date'],invoice_no=request.POST['invoice_no'],)
     c.save()
     return redirect( '/')
 
+def iteminvoice(request):
+    return render(request,'Sam/item invoice.html')
 
-
+def itemcreate(request):
+    c = ItemInvoice(item_id=request.POST['item_id'],item_name=request.POST['item_name'],date=request.POST['date'],period=request.POST['period'],)
+    c.save()
+    return redirect( '/')
 
 
 

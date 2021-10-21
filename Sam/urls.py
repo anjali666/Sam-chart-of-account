@@ -73,6 +73,8 @@ urlpatterns = [
     url(r'^cinvocreate$', views.cinvocreate, name='cinvocreate'),
     url(r'^supinvoice$', views.supinvoice, name='supinvoice'),
     url(r'^sinvocreate$', views.sinvocreate, name='sinvocreate'),
+    url(r'^iteminvoice$', views.iteminvoice, name='iteminvoice'),
+    url(r'^itemcreate$', views.itemcreate, name='itemcreate'),
 
     
 
