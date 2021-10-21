@@ -67,6 +67,15 @@ urlpatterns = [
     url(r'^goexpences$', views.goexpences, name='goexpences'),
     url(r'^expencescreate$', views.expencescreate, name='expencescreate'),
 
+
+
+    url(r'^custinvoice$', views.custinvoice, name='custinvoice'),
+    url(r'^cinvocreate$', views.cinvocreate, name='cinvocreate'),
+    url(r'^supinvoice$', views.supinvoice, name='supinvoice'),
+    url(r'^sinvocreate$', views.sinvocreate, name='sinvocreate'),
+
+    
+
 ]
 if settings.DEBUG:
         urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

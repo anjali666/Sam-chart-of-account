@@ -1,10 +1,32 @@
 from django.shortcuts import render, redirect
-from Sam.models import Customer, Expences, Income, Liabilities, Supplier, Group, Ledger, Item, Job, Asset
+from Sam.models import Customer, CustomerInvoice, Expences, Income, Liabilities, Supplier, Group, Ledger, Item, Job, Asset, SupplierInvoice
 from .forms import ItemForm, JobForm
 
 
 def go(request):
     return render(request,'Sam/dashboard.html')
+
+def custinvoice(request):
+    return render(request,'Sam/customer invoice.html')
+def cinvocreate(request):
+    c = CustomerInvoice(report_date=request.POST['report_date'],invoice_no=request.POST['invoice_no'],cusomer_id=request.POST['cusomer_id'],customer_name=request.POST['customer_name'],)
+    c.save()
+    return redirect( '/')
+
+def supinvoice(request):
+    return render(request,'Sam/supplier invoice.html')
+def sinvocreate(request):
+    c = SupplierInvoice(supplier_id=request.POST['supplier_id'],supplier_name=request.POST['supplier_name'],report_date=request.POST['report_date'],invoice_no=request.POST['invoice_no'],)
+    c.save()
+    return redirect( '/')
+
+
+
+
+
+
+
+
 
 
 def gocust(request):

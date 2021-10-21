@@ -130,7 +130,6 @@ class Expences(models.Model):
     expenses_parent   =   models.TextField(max_length=100)
     expenses_child    =   models.TextField(max_length=100)
 class CustomerInvoice(models.Model):
-    customer_invoice   =   models.TextField(max_length=100)
     report_date      =   models.TextField(max_length=100)
     invoice_no           =   models.TextField(max_length=100)
     cusomer_id      =   models.TextField(max_length=100)
