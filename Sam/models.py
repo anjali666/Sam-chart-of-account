@@ -129,6 +129,30 @@ class Income(models.Model):
 class Expences(models.Model):
     expenses_parent   =   models.TextField(max_length=100)
     expenses_child    =   models.TextField(max_length=100)
+class CustomerInvoice(models.Model):
+    customer_invoice   =   models.TextField(max_length=100)
+    report_date      =   models.TextField(max_length=100)
+    invoice_no           =   models.TextField(max_length=100)
+    cusomer_id      =   models.TextField(max_length=100)
+    customer_name      =   models.TextField(max_length=100)
+    si_no1          =   models.TextField(max_length=100)
+    si_no2          =   models.TextField(max_length=100)
+    date1  =   models.TextField(max_length=100)
+    date2  =   models.TextField(max_length=100)
+    ref_no1           =   models.TextField(max_length=100)
+    ref_no2         =   models.TextField(max_length=100)
+    description1    =   models.TextField(max_length=100)
+    description2   =   models.TextField(max_length=100)
+    item1  =   models.TextField(max_length=100)
+    item2   =   models.TextField(max_length=100)
+    qty1     =   models.TextField(max_length=100) 
+    qty2     =   models.TextField(max_length=100)
+    job1     =   models.TextField(max_length=100) 
+    job2     =   models.TextField(max_length=100)
+    sales_staff1     =   models.TextField(max_length=100) 
+    sales_staff2     =   models.TextField(max_length=100) 
+    amount     =   models.TextField(max_length=100) 
+    balance_amount     =   models.TextField(max_length=100)     
 
 
 
