@@ -67,6 +67,66 @@ urlpatterns = [
     url(r'^goexpences$', views.goexpences, name='goexpences'),
     url(r'^expencescreate$', views.expencescreate, name='expencescreate'),
 
+    url(r'^gosales$', views.gosales, name='gosales'),
+    url(r'^gocashsale$', views.gocashsale, name='gocashsale'),
+    url(r'^cashcreate$', views.cashcreate, name='cashcreate'),
+    url(r'^cashview$', views.cashview, name='cashview'),
+    url(r'^editcash/(?P<id>\d+)$', views.editcash, name='editcash'),
+    url(r'^editcash/updatecash/(?P<id>\d+)$', views.updatecash, name='updatecash'),
+    url(r'^deletecash/(?P<id>\d+)$', views.deletecash, name='deletecash'),
+
+    url(r'^gocreditsale$', views.gocreditsale, name='gocreditsale'),
+    url(r'^creditcreate$', views.creditcreate, name='creditcreate'),
+    url(r'^creditview$', views.creditview, name='creditview'),
+    url(r'^editcredit/(?P<id>\d+)$', views.editcredit, name='editcredit'),
+    url(r'^editcredit/updatecredit/(?P<id>\d+)$', views.updatecredit, name='updatecredit'),
+    url(r'^deletecredit/(?P<id>\d+)$', views.deletecredit, name='deletecredit'),
+
+    url(r'^gosreturnsale$', views.gosreturnsale, name='gosreturnsale'),
+    url(r'^sreturncreate$', views.sreturncreate, name='sreturncreate'),
+    url(r'^sreturnview$', views.sreturnview, name='sreturnview'),
+    url(r'^editsreturn/(?P<id>\d+)$', views.editsreturn, name='editsreturn'),
+    url(r'^editsreturn/updatesreturn/(?P<id>\d+)$', views.updatesreturn, name='updatesreturn'),
+    url(r'^deletesreturn/(?P<id>\d+)$', views.deletesreturn, name='deletesreturn'),
+
+    url(r'^goreceipt$', views.goreceipt, name='goreceipt'),
+    url(r'^receiptcreate$', views.receiptcreate, name='receiptcreate'),
+    url(r'^receiptview$', views.receiptview, name='receiptview'),
+    url(r'^editreceipt/(?P<id>\d+)$', views.editreceipt, name='editreceipt'),
+    url(r'^editreceipt/updatereceipt/(?P<id>\d+)$', views.updatereceipt, name='updatereceipt'),
+    url(r'^deletereceipt/(?P<id>\d+)$', views.deletereceipt, name='deletereceipt'),
+
+    url(r'^gopsales$', views.gopsales, name='gopsales'),
+    url(r'^gopcashsale$', views.gopcashsale, name='gopcashsale'),
+    url(r'^pcashcreate$', views.pcashcreate, name='pcashcreate'),
+    url(r'^pcashview$', views.pcashview, name='pcashview'),
+    url(r'^editpcash/(?P<id>\d+)$', views.editpcash, name='editpcash'),
+    url(r'^editpcash/updatepcash/(?P<id>\d+)$', views.updatepcash, name='updatepcash'),
+    url(r'^deletepcash/(?P<id>\d+)$', views.deletepcash, name='deletepcash'),
+
+    url(r'^gopcreditsale$', views.gopcreditsale, name='gopcreditsale'),
+    url(r'^pcreditcreate$', views.pcreditcreate, name='pcreditcreate'),
+    url(r'^pcreditview$', views.pcreditview, name='pcreditview'),
+    url(r'^editpcredit/(?P<id>\d+)$', views.editpcredit, name='editpcredit'),
+    url(r'^editpcredit/updatepcredit/(?P<id>\d+)$', views.updatepcredit, name='updatepcredit'),
+    url(r'^deletepcredit/(?P<id>\d+)$', views.deletepcredit, name='deletepcredit'),
+
+    url(r'^gopsreturnsale$', views.gopsreturnsale, name='gopsreturnsale'),
+    url(r'^psreturncreate$', views.psreturncreate, name='psreturncreate'),
+    url(r'^psreturnview$', views.psreturnview, name='psreturnview'),
+    url(r'^editpsreturn/(?P<id>\d+)$', views.editpsreturn, name='editpsreturn'),
+    url(r'^editpsreturn/updatepsreturn/(?P<id>\d+)$', views.updatepsreturn, name='updatepsreturn'),
+    url(r'^deletepsreturn/(?P<id>\d+)$', views.deletepsreturn, name='deletepsreturn'),
+
+    url(r'^gopreceipt$', views.gopreceipt, name='gopreceipt'),
+    url(r'^preceiptcreate$', views.preceiptcreate, name='preceiptcreate'),
+    url(r'^preceiptview$', views.preceiptview, name='preceiptview'),
+    url(r'^editpreceipt/(?P<id>\d+)$', views.editpreceipt, name='editpreceipt'),
+    url(r'^editpreceipt/updatepreceipt/(?P<id>\d+)$', views.updatepreceipt, name='updatepreceipt'),
+    url(r'^deletepreceipt/(?P<id>\d+)$', views.deletepreceipt, name='deletepreceipt'),
+
+
+
 ]
 if settings.DEBUG:
         urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
