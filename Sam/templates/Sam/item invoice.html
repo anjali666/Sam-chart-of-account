@@ -45,21 +45,21 @@ margin-bottom: 3px;
         <section style="padding-top:30px">
         <div class="container">
       
-          <button type="button"  style="border-radius:12px;" class="btn  btn-sm btn-block"><b><p style="font-size: 30px;">Customer Invoice History</p></b></button>
+          <button type="button"  style="border-radius:12px;" class="btn  btn-sm btn-block"><b><p style="font-size: 30px;">Item Statement</p></b></button>
           <br>
         </div>
       
-          <form method="POST" action="cinvocreate">
+          <form method="POST" action="itemcreate">
             {% csrf_token %} 
             <div class="container-sm ">
       
             <div class="row">
               <div class="col-sm-5" >
-                <label class="form-control"  style="border-radius:12px;padding: 10px; "> Report Date</label>
+                <label class="form-control"  style="border-radius:12px;padding: 10px; "> Item Id </label>
                
               </div>
               <div class="col-sm-7" >
-                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="report_date">
+                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="item_id">
               </div>
             </div>
       
@@ -67,33 +67,33 @@ margin-bottom: 3px;
       
               <div class="row" style="padding-top: 5px;">
               <div class="col-sm-5" >
-                <label class="form-control"  style="border-radius:12px;padding: 10px; ">  Invoice No </label>
+                <label class="form-control"  style="border-radius:12px;padding: 10px; ">Item Name   </label>
                 
               </div>
       
               <div class="col-sm-7" >
-                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="invoice_no">
+                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="item_name">
               </div>
             </div>
             <div class="row" style="padding-top: 5px;">
               <div class="col-sm-5" >
-                <label class="form-control"  style="border-radius:12px;padding: 10px; "> Customer Id </label>
+                <label class="form-control"  style="border-radius:12px;padding: 10px; "> Date </label>
                 
               </div>
       
               <div class="col-sm-7" >
-                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="cusomer_id">
+                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="date">
               </div>
             </div>
       
             <div class="row" style="padding-top: 5px;">
               <div class="col-sm-5" >
-                <label class="form-control"  style="border-radius:12px;padding: 10px; ">Customer Name </label>
+                <label class="form-control"  style="border-radius:12px;padding: 10px; ">Period </label>
                 
               </div>
       
               <div class="col-sm-7" >
-                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="customer_name">
+                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="period">
               </div>
             </div>
       
@@ -108,57 +108,51 @@ margin-bottom: 3px;
       
               <table class="table table-bordered">
                 <thead>
-                  <tr>
-                    <th>Sl.No</th>
-                    <th>Date</th>
-                    <th>Ref No</th>
-                    <th>Description</th>
-                    <th>Item</th>
-                    <th>Qty </th>
-                    <th>Job</th>
-                    <th>Sales Staff</th>
-                    <th>Amount</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    
-                  </tr>
-                  <tr>
-                    <td colspan="8" align="right">Balance Amount</td>
-                    <td></td>
-                  </tr>
+                    <tr>
+                        <th>Sl.no</th>
+                        <th>Item ID</th>
+                        <th>Item Name</th>
+                        <th>Item Description</th>
+                        <th>Stock +</th>
+                        <th>Stock - </th>
+                        <th>Stock Adjustment </th>
+                        <th> Balance Stock  </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        
+                      </tr>
+                  
       
                 </tbody>
               </table>

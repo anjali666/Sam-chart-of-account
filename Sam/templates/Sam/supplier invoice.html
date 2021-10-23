@@ -40,26 +40,26 @@ margin-bottom: 3px;
 </head>
 
 
-
+<
     <body>
         <section style="padding-top:30px">
         <div class="container">
       
-          <button type="button"  style="border-radius:12px;" class="btn  btn-sm btn-block"><b><p style="font-size: 30px;">Customer Invoice History</p></b></button>
+          <button type="button"  style="border-radius:12px;" class="btn  btn-sm btn-block"><b><p style="font-size: 30px;">Supplier Invoice History</p></b></button>
           <br>
         </div>
       
-          <form method="POST" action="cinvocreate">
+          <form method="POST" action="sinvocreate">
             {% csrf_token %} 
             <div class="container-sm ">
       
             <div class="row">
               <div class="col-sm-5" >
-                <label class="form-control"  style="border-radius:12px;padding: 10px; "> Report Date</label>
+                <label class="form-control"  style="border-radius:12px;padding: 10px; "> Supplier Id </label>
                
               </div>
               <div class="col-sm-7" >
-                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="report_date">
+                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="supplier_id">
               </div>
             </div>
       
@@ -67,33 +67,33 @@ margin-bottom: 3px;
       
               <div class="row" style="padding-top: 5px;">
               <div class="col-sm-5" >
-                <label class="form-control"  style="border-radius:12px;padding: 10px; ">  Invoice No </label>
+                <label class="form-control"  style="border-radius:12px;padding: 10px; ">Supplier Name  </label>
+                
+              </div>
+      
+              <div class="col-sm-7" >
+                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="supplier_name">
+              </div>
+            </div>
+            <div class="row" style="padding-top: 5px;">
+              <div class="col-sm-5" >
+                <label class="form-control"  style="border-radius:12px;padding: 10px; ">Report Date </label>
+                
+              </div>
+      
+              <div class="col-sm-7" >
+                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="report_date">
+              </div>
+            </div>
+      
+            <div class="row" style="padding-top: 5px;">
+              <div class="col-sm-5" >
+                <label class="form-control"  style="border-radius:12px;padding: 10px; ">Invoice No </label>
                 
               </div>
       
               <div class="col-sm-7" >
                 <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="invoice_no">
-              </div>
-            </div>
-            <div class="row" style="padding-top: 5px;">
-              <div class="col-sm-5" >
-                <label class="form-control"  style="border-radius:12px;padding: 10px; "> Customer Id </label>
-                
-              </div>
-      
-              <div class="col-sm-7" >
-                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="cusomer_id">
-              </div>
-            </div>
-      
-            <div class="row" style="padding-top: 5px;">
-              <div class="col-sm-5" >
-                <label class="form-control"  style="border-radius:12px;padding: 10px; ">Customer Name </label>
-                
-              </div>
-      
-              <div class="col-sm-7" >
-                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="customer_name">
               </div>
             </div>
       

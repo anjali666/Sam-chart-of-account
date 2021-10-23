@@ -475,7 +475,11 @@ class PReceipt(models.Model):
 
 
         
-         
+class ItemInvoice(models.Model):
+    item_id = models.TextField(max_length=100)
+    item_name = models.TextField(max_length=100) 
+    date = models.TextField(max_length=100)
+    period = models.TextField(max_length=100)       
 
 
 

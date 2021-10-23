@@ -67,6 +67,7 @@ urlpatterns = [
     url(r'^goexpences$', views.goexpences, name='goexpences'),
     url(r'^expencescreate$', views.expencescreate, name='expencescreate'),
 
+<<<<<<< HEAD
     url(r'^gosales$', views.gosales, name='gosales'),
     url(r'^gocashsale$', views.gocashsale, name='gocashsale'),
     url(r'^cashcreate$', views.cashcreate, name='cashcreate'),
@@ -126,6 +127,18 @@ urlpatterns = [
     url(r'^deletepreceipt/(?P<id>\d+)$', views.deletepreceipt, name='deletepreceipt'),
 
 
+=======
+
+
+    url(r'^custinvoice$', views.custinvoice, name='custinvoice'),
+    url(r'^cinvocreate$', views.cinvocreate, name='cinvocreate'),
+    url(r'^supinvoice$', views.supinvoice, name='supinvoice'),
+    url(r'^sinvocreate$', views.sinvocreate, name='sinvocreate'),
+    url(r'^iteminvoice$', views.iteminvoice, name='iteminvoice'),
+    url(r'^itemcreate$', views.itemcreate, name='itemcreate'),
+
+    
+>>>>>>> c9e81fecf74f65bddef6e49f44f3bb8c7d1e1d07
 
 ]
 if settings.DEBUG:
