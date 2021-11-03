@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sam</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .col-sm-5{
+  padding-right: 3px;
+  padding-left: 3px;
+}
+.col-sm-7{
+  padding-right: 3px;
+  padding-left: 3px;
+}
+.btn{
+  background-color: #808F9C;
+
+
+}
+.form-control{
+  background-color: #B0BCD7;
+height: 65px;
+margin-bottom: 3px;
+}
+ .container-sm{
+   padding-left: 30px;
+   padding-right: 30px;
+ }
+
+.row{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+.hide {
+  visibility: hidden;
+  border: none;
+}
+
+</style>
+  <body>
+    <section style="padding-top:30px">
+       <div class="container">
+      
+        {% for supp2 in supp %}
+        <tr>
+            <td>{{ supp2.customer_name }}</td>
+            <td>{{ supp2.invoice_no }}</td>
+            <td>{{ supp2.customer_id }}</td>
+            <td>{{ supp2.reportDate }}</td>
+           
+            <td><center><a class="btn btn-sm btn-warning" href="editsupp/{{ supp2.id }}"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a class="btn btn-sm btn-danger" href="deletesupp/{{ supp2.id }}"><span class="glyphicon glyphicon-trash"></span>Delete</a> </center></td>
+        </tr>
+    {% endfor %}
+              </div>
+      
+      
+      
+             
+      
+            <br><br>
+      
+      
+            <!-- <div class="container">
+      
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Sl.no</th>
+                    <th>Date</th>
+                    <th>Ref No</th>
+                    <th>Description</th>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Job</th>
+                    <th>Sales Staff</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+      
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="hide">hide</td>
+                    <td class="hide"></td>
+                    <td class="hide"></td>
+                    <td class="hide"></td>
+      
+                    <td class="hide"></td>
+                    <td class="hide"></td>
+                    <td class="hide"></td>
+                    <p>Balance amount</p>
+                    <td></td>
+                  </tr>
+      
+                </tbody>
+              </table>
+            </div> -->
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          </div>
+            <br>
+       
+            <script>
+            function myFunction() {
+              var x = document.getElementById("myFile");
+              x.disabled = true;
+            }
+            </script>
+        <br>
+         
+      
+      
+        </section>
+    </body>
+  </html>

@@ -1,0 +1,189 @@
+<head>
+    <meta charset="UTF-8">  
+        <title>Customer View</title>  
+        {% load static %}  
+       <link rel="stylesheet" href="{% static '/css/style.css' %}"/>   
+       <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+
+.col-sm-5{
+  padding-right: 3px;
+  padding-left: 3px;
+}
+.col-sm-7{
+  padding-right: 3px;
+  padding-left: 3px;
+}
+.btn{
+  background-color: #808F9C;
+
+
+}
+.form-control{
+  background-color: #B0BCD7;
+height: 65px;
+margin-bottom: 3px;
+}
+
+
+.row{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+    </style>
+</head>
+
+
+<
+    <body>
+        <section style="padding-top:30px">
+        <div class="container">
+      
+          <button type="button"  style="border-radius:12px;" class="btn  btn-sm btn-block"><b><p style="font-size: 30px;">Supplier Invoice History</p></b></button>
+          <br>
+        </div>
+      
+          <form method="POST" action="sinvocreate">
+            {% csrf_token %} 
+            <div class="container-sm ">
+      
+            <div class="row">
+              <div class="col-sm-5" >
+                <label class="form-control"  style="border-radius:12px;padding: 10px; "> Supplier Id </label>
+               
+              </div>
+              <div class="col-sm-7" >
+                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="supplier_id">
+              </div>
+            </div>
+      
+      
+      
+              <div class="row" style="padding-top: 5px;">
+              <div class="col-sm-5" >
+                <label class="form-control"  style="border-radius:12px;padding: 10px; ">Supplier Name  </label>
+                
+              </div>
+      
+              <div class="col-sm-7" >
+                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="supplier_name">
+              </div>
+            </div>
+            <div class="row" style="padding-top: 5px;">
+              <div class="col-sm-5" >
+                <label class="form-control"  style="border-radius:12px;padding: 10px; ">Report Date </label>
+                
+              </div>
+      
+              <div class="col-sm-7" >
+                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="report_date">
+              </div>
+            </div>
+      
+            <div class="row" style="padding-top: 5px;">
+              <div class="col-sm-5" >
+                <label class="form-control"  style="border-radius:12px;padding: 10px; ">Invoice No </label>
+                
+              </div>
+      
+              <div class="col-sm-7" >
+                <input type="text"  style="border-radius:12px;" class="form-control" placeholder="" name="invoice_no">
+              </div>
+            </div>
+      
+      
+      
+            <br><br>
+            <div class="container">
+                <button type="submit" onclick="myFunction()" style="border-radius: 12px;" class="btn btn-lg btn-block">Submit</button>
+          </div>
+          <br><br>
+            <div class="container">
+      
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Sl.No</th>
+                    <th>Date</th>
+                    <th>Ref No</th>
+                    <th>Description</th>
+                    <th>Item</th>
+                    <th>Qty </th>
+                    <th>Job</th>
+                    <th>Sales Staff</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    
+                  </tr>
+                  <tr>
+                    <td colspan="8" align="right">Balance Amount</td>
+                    <td></td>
+                  </tr>
+      
+                </tbody>
+              </table>
+            </div>
+      
+          </div>
+            <br>
+        <div class="container ">
+      
+      
+          </div>
+            <script>
+            function myFunction() {
+              var x = document.getElementById("myFile");
+              x.disabled = true;
+            }
+            </script>
+        <br>
+            
+          </form>
+      
+      
+        </section>
+        </body>
+      
+      
+      
+    
